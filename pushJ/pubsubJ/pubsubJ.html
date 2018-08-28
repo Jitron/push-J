@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"">
+  <head>
+    <title>PUB-SUB Test</title>
+
+    <script type='text/javascript' src='../scripts/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='../scripts/strophe.js'></script>
+    <script type='text/javascript' src='pubsubJ.js'></script>
+  </head>
+  <body>
+
+    <div id='login' class='hidden'>
+      <label>JID:</label><input type='text' id='jid'>
+      <label>Password:</label><input type='password' id='password'>
+      <label>Pubsub service:</label><input type='text' id='service'>
+      <label>Pubsub node:</label><input type='text' id='node'>
+      <input type="button" id="ok" value="ok">
+      <input type="button" id="salir" value="salir">
+    </div>
+
+
+    <!-- The error dialog -->
+    <div id='error' class='hidden'>
+      <p></p>
+    </div>
+    <p id="message"></p>
+    
+
+    <!--div id='login' style='text-align: center'>
+      <form name='cred'>
+        <label for='realm'>Realm ID:</label>
+        <input type='text' id='realm' />
+        <label for='channel'>Channel:</label>
+        <input type='text' id='channel' value='test' />
+        <input type='button' id='connect' value='connect' />
+      </form>
+    </div-->
+    <hr />
+    <div id='log'></div>
+  </body>
+</html>

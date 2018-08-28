@@ -1,0 +1,1 @@
+# DemoAppPhoneGap-Strophe
