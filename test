@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title></title>
+            <meta charset="utf-8">
+            <script src="strophe.js"></script>
+            <script>
+    window.onload = function(){
+
+                    var service = 'http://192.168.0.6:5280/bosh';
+                        jid = 'user2@im.server.com',
+                        password = 'user2';
+                    document.domain = 'im.server.com';
+
+                    var request;
+
+                    if (window.XMLHttpRequest) {
+                        try {
+                            request = new XMLHttpRequest();
+                            } catch (e) {
+                                try {httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                                } catch (e) {}
+                            }
+                    }else if (window.ActiveXObject) {
+                        return new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    if (!request){
+                        alert("No ha sido posible crear una instancia de XMLHttpRequest");
+                    }
+
+                    request.open('POST', service, true);
+                    request.setRequestHeader("Content-type", 'application/xml');
+
+
+                    request.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(this.responseText);
+                        }
+                    };
+
+                    var connection = new Strophe.Connection(service);
+                        connection.connect(jid, password, function(state) {
+                            for(var statusName in Strophe.Status) 
+                                if(Strophe.Status[statusName] === state) break;
+                            out.innerHTML = statusName;
+                        });
+
+                
+                }
+            </script>
+        </head>
+        <body >
+            <p>
+                Debe mostrar "CONNECTED" espere unos segundos: 
+                <b id="out"></b>
+            </p>
+        </body>
+    </html>
